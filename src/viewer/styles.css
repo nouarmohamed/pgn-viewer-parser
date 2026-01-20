@@ -1,0 +1,102 @@
+/* PGN Viewer Styles */
+
+.pgn-viewer {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 16px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.pgn-move-number {
+  color: #666;
+  margin-right: 4px;
+  font-weight: 600;
+}
+
+.pgn-move {
+  display: inline-block;
+  padding: 2px 6px;
+  margin: 0 2px;
+  border-radius: 3px;
+  transition: background-color 0.2s;
+}
+
+.pgn-move:hover {
+  background-color: #e0e0e0;
+}
+
+.pgn-move-current {
+  background-color: #4a90e2;
+  color: white;
+  font-weight: 600;
+}
+
+.pgn-move-current:hover {
+  background-color: #357abd;
+}
+
+.pgn-nag {
+  color: #d9534f;
+  margin-left: 2px;
+  font-weight: bold;
+}
+
+.pgn-comment {
+  color: #5a5a5a;
+  font-style: italic;
+  margin: 0 4px;
+}
+
+.pgn-annotation {
+  color: #888;
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+.pgn-variation {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  color: #555;
+}
+
+/* PGN Controls Styles */
+
+.pgn-controls {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  justify-content: center;
+}
+
+.pgn-control-button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  min-width: 44px;
+}
+
+.pgn-control-button:hover:not(:disabled) {
+  background-color: #357abd;
+}
+
+.pgn-control-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.pgn-control-button:active:not(:disabled) {
+  transform: scale(0.95);
+}
