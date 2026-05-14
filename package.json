@@ -1,6 +1,6 @@
 {
   "name": "pgn-viewer-parser",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A production-ready PGN parser and viewer library for chess, with full support for variations, comments, NAGs, and annotations",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -14,11 +14,16 @@
     "./viewer": {
       "types": "./dist/viewer/index.d.ts",
       "import": "./dist/viewer/index.js"
-    }
+    },
+    "./dist/style.css": "./dist/style.css"
   },
+  "sideEffects": [
+    "*.css"
+  ],
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",

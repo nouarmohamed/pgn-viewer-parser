@@ -1,102 +1,192 @@
-/* PGN Viewer Styles */
+/* PGN Viewer Styles - Chess.com Dark Theme Replica */
 
 .pgn-viewer {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Helvetica, Arial, sans-serif;
   font-size: 14px;
-  line-height: 1.8;
-  padding: 16px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
+  line-height: 1.5;
+  background-color: #262522;
+  /* Main Moves List Background */
+  color: #c3c3c3;
+  /* Default Text Color */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
   border-radius: 4px;
-  max-width: 100%;
-  overflow-x: auto;
+  /* Optional, context dependent */
+  overflow: hidden;
+  /* To contain nested scroll */
 }
 
+/* Scrollable Moves List Area */
+.pgn-moves-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2px 0;
+  scrollbar-width: thin;
+  scrollbar-color: #555 #262522;
+}
+
+.pgn-moves-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.pgn-moves-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.pgn-moves-list::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 4px;
+}
+
+/* Rows (Move Pairs) */
+.pgn-row {
+  display: flex;
+  padding: 4px 10px;
+  /* Vertical spacing and horizontal padding */
+  border-bottom: 1px solid transparent;
+  /* Placeholder to keep height consistent if needed */
+}
+
+.pgn-row:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.02);
+  /* Very subtle zebra striping if desired, chess.com often solid but this helps read */
+}
+
+/* Move Number */
 .pgn-move-number {
-  color: #666;
-  margin-right: 4px;
-  font-weight: 600;
+  color: #8b8987;
+  /* Muted move number */
+  min-width: 24px;
+  text-align: right;
+  margin-right: 12px;
+  font-weight: 500;
+  user-select: none;
 }
 
+/* The actual move (SAN) */
 .pgn-move {
-  display: inline-block;
-  padding: 2px 6px;
-  margin: 0 2px;
+  color: #e5e5e5;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 2px 5px;
   border-radius: 3px;
-  transition: background-color 0.2s;
+  margin-right: 8px;
+  /* Spacing between white and black move */
+  transition: background-color 0.1s, color 0.1s;
+  min-width: 50px;
+  /* Ensure click target is decent */
 }
 
 .pgn-move:hover {
-  background-color: #e0e0e0;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #fff;
 }
 
-.pgn-move-current {
-  background-color: #4a90e2;
-  color: white;
-  font-weight: 600;
+/* Active Move Highlight */
+.pgn-active,
+.pgn-active:hover {
+  background-color: #484643;
+  /* Highlight background */
+  color: #f5f5f5;
+  /* Bright text */
+  /* border-bottom: 2px solid #6b6966;  Optional highlight style */
 }
 
-.pgn-move-current:hover {
-  background-color: #357abd;
-}
-
-.pgn-nag {
-  color: #d9534f;
-  margin-left: 2px;
-  font-weight: bold;
-}
-
-.pgn-comment {
-  color: #5a5a5a;
+/* Variations */
+.pgn-variation {
+  display: block;
+  width: 100%;
+  padding-left: 10px;
+  margin: 2px 0;
+  color: #999;
   font-style: italic;
-  margin: 0 4px;
+  opacity: 0.9;
+}
+
+/* Comments */
+.pgn-comment {
+  display: block;
+  width: 100%;
+  color: #8b8987;
+  font-size: 13px;
+  padding: 4px 10px 4px 46px;
+  /* Indent to align with moves roughly */
+  font-style: italic;
+  border-bottom: 1px solid #333;
+  margin-bottom: 4px;
 }
 
 .pgn-annotation {
-  color: #888;
-  font-size: 12px;
+  color: #7fa650;
+  /* Greenish for eval/time */
+  font-size: 11px;
   margin-left: 4px;
+  vertical-align: super;
 }
 
-.pgn-variation {
-  margin-top: 4px;
-  margin-bottom: 4px;
-  color: #555;
+.pgn-nag {
+  color: #faae2d;
+  /* Orange/Yellow for Nags !! ?? */
+  font-weight: bold;
+  margin-left: 2px;
 }
 
-/* PGN Controls Styles */
 
+/* -------------------------------------------------------------------------
+   CONTROLS (Bottom Bar)
+------------------------------------------------------------------------- */
 .pgn-controls {
   display: flex;
-  gap: 8px;
-  padding: 12px;
-  background-color: #f0f0f0;
-  border-radius: 4px;
+  align-items: center;
   justify-content: center;
+  background-color: #21201d;
+  /* Darker than moves list */
+  padding: 8px 16px;
+  gap: 0;
+  /* Icons often close or spaced uniformly */
+  border-top: 1px solid #302e2c;
+  min-height: 48px;
 }
 
 .pgn-control-button {
-  background-color: #4a90e2;
-  color: white;
+  background: transparent;
   border: none;
-  border-radius: 4px;
+  color: #9e9d9b;
+  /* Inactive grey */
   padding: 8px 16px;
-  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.2s;
-  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: color 0.1s, background-color 0.1s;
 }
 
 .pgn-control-button:hover:not(:disabled) {
-  background-color: #357abd;
-}
-
-.pgn-control-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-  opacity: 0.6;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 .pgn-control-button:active:not(:disabled) {
-  transform: scale(0.95);
+  transform: translateY(1px);
+}
+
+.pgn-control-button:disabled {
+  color: #3e3d3a;
+  /* Very dim disabled state */
+  cursor: default;
+}
+
+.pgn-control-button svg {
+  display: block;
+}
+
+/* Layout Utility for Viewer Wrapper if needed */
+.pgn-wrapper {
+  display: flex;
+  flex-direction: column;
+  /* max-height: 400px; Example height constraint, user handles usually */
+  background: #262522;
 }

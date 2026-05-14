@@ -2,6 +2,7 @@
 
 import { useEffect, useCallback } from 'react';
 import { GameCursor } from '../cursor/game-cursor.js';
+import { FirstMoveIcon, PreviousMoveIcon, NextMoveIcon, LastMoveIcon } from '../assets/icons.js';
 import './styles.css';
 
 export interface PGNControlsProps {
@@ -88,7 +89,7 @@ export function PGNControls({
                 disabled={cursor.isAtStart()}
                 title="First move (Ctrl+←)"
             >
-                ⏮
+                <FirstMoveIcon size={24} />
             </button>
             <button
                 className="pgn-control-button"
@@ -96,7 +97,7 @@ export function PGNControls({
                 disabled={cursor.isAtStart()}
                 title="Previous move (←)"
             >
-                ◀
+                <PreviousMoveIcon size={24} />
             </button>
             <button
                 className="pgn-control-button"
@@ -104,7 +105,7 @@ export function PGNControls({
                 disabled={cursor.isAtEnd()}
                 title="Next move (→)"
             >
-                ▶
+                <NextMoveIcon size={24} />
             </button>
             <button
                 className="pgn-control-button"
@@ -112,7 +113,7 @@ export function PGNControls({
                 disabled={cursor.isAtEnd()}
                 title="Last move (Ctrl+→)"
             >
-                ⏭
+                <LastMoveIcon size={24} />
             </button>
         </div>
     );

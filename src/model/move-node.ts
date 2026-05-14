@@ -80,7 +80,7 @@ export function createMoveNode(props: {
 export function createRootNode(): MoveNode {
     return {
         id: 'root',
-        ply: 0,
+        ply: -1,
         moveNumber: 0,
         color: 'w',
         san: '',
